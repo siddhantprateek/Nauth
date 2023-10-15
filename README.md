@@ -2,6 +2,13 @@
 
 Authentication service in Typescript
 
+## Running application using `docker-compose`
+
+```shell
+docker-compose up -d
+```
+
+
 ## Checklist
 
 Task: Building a Secure User Authentication and Authorization System with Express.js

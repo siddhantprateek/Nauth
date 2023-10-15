@@ -9,7 +9,7 @@
     "dbpull": "prisma db pull",
     "deploy": "prisma migrate deploy",
     "build": "npm run generate",
-    "test": "jest --coverage",
+    "test": "jest --coverage --forceExit",
     "build:ts": "npx tsc",
     "start": "node dist/server.js",
     "dev": "nodemon server.ts"
