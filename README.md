@@ -31,7 +31,7 @@ The objective is to create a secure user authentication and authorization system
 ### Requirements
 
 - [x] Create an Express.js Application
-- [x]User Registration and Authentication:
+- [x] User Registration and Authentication:
   - [x] Implement user registration with email and password.
   - [x] Store user information securely, including password hashing (using libraries like `bcrypt`).
   - [x] Implement user login with token-based authentication (JWT).
@@ -56,6 +56,9 @@ The objective is to create a secure user authentication and authorization system
 ## Test Coverage
 
 ![](./assets/test.png)
+
+![](./assets/test-2.png)
+
 
 ## Email
 
