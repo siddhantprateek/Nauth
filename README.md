@@ -31,6 +31,11 @@ Requirements:
 - [x] Testing:
     - [x] Write test cases to ensure that the authentication, authorization, and security features are working as expected.
 
+## Test Coverage
+
+![](./assets/test.png)
+
+
 ## Author
 
 - [Siddhant Prateek Mahanayak](https://github.com/siddhantprateek)
