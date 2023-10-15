@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express";
 import isAdmin from "../middleware/adminAuth.middleware";
 import GetAllUser from "../controllers/getAllUsers.controller";
 import { AuthenticateUser, CreateUser, DeleteUser, GetUser, UpdateUser } from "../controllers/user.controller";
+import { PasswordResetHandler, RequestTokenHandler } from '../controllers/reset.controller';
 import authorize from "../middleware/authorize.middleware";
 
 let router = Router()
@@ -30,6 +31,9 @@ router.delete('/users/:id', authorize, DeleteUser);
 
 // Get All Users (accessible only to admins)
 router.get('/users', isAdmin, GetAllUser);
+
+router.post('/reset-password', PasswordResetHandler)
+router.post('/confirm-reset', RequestTokenHandler)
 
 
 export { router };
