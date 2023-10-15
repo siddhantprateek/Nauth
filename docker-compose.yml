@@ -39,6 +39,8 @@ services:
       REDIS_HOST: cache
       REDIS_PORT: 6379
       REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      HOST: smtp.ethereal.email
+      BASE_URL: http://auth:8090
     ports:
       - 8090:8090
     networks:
