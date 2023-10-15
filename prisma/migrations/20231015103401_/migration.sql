@@ -11,5 +11,17 @@ CREATE TABLE "user" (
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "token" (
+    "id" SERIAL NOT NULL,
+    "token" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "token_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "token_token_key" ON "token"("token");
