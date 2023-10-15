@@ -44,7 +44,7 @@ The objective is to create a secure user authentication and authorization system
   - [x] Restrict access to certain routes based on the user's role.
   - [x] Admins should have additional permissions.
 - [x] Password Reset:
-  - [x]Implement a "Forgot Password" feature that allows users to reset their passwords through a secure email-based process.
+  - [x] Implement a "Forgot Password" feature that allows users to reset their passwords through a secure email-based process.
 - [x] Security Measures:
   - [x] Implement security headers to prevent common web security vulnerabilities (e.g., XSS, CSRF).
   - [x] Use appropriate libraries to secure against other common attacks.
