@@ -85,7 +85,7 @@ let AuthenticateUser = async (req: Request, res: Response) => {
       user?.password || ""
     );
 
-    // const isPasswordMatching = password == user?.password
+
 
     if (!isPasswordMatching) {
       return res.status(401).json({ message: "Invalid password" });
@@ -113,7 +113,32 @@ let AuthenticateUser = async (req: Request, res: Response) => {
 // @params: user
 // @method: PATCH
 // @route: /api/update/:id
-let UpdateUser = async (req: Request, res: Response) => {};
+let UpdateUser = async (req: Request, res: Response) => {
+  const userId = req.params.id;
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(406).json({
+        message: 'Invalid Data',
+        errors,
+      });
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { 
+        id: Number(userId) 
+      },
+      data: req.body,
+    });
+
+    res.status(200).json({
+      message: 'User updated successfully',
+      user: updatedUser,
+    });
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', "error": error });
+  }
+};
 
 // Handle Deletion of User
 // @params: id
