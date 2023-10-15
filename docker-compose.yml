@@ -1,0 +1,55 @@
+version: '3.9'
+
+services:
+  cache:
+    image: redis/redis-stack:latest
+    container_name: redis
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    ports:
+      - 6379:6379
+      - 8001:8001
+    volumes:
+      - rediscache:/data
+    networks:
+      - authnet
+  
+  postgres:
+    image: postgres:13-alpine
+    restart: always
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=fleetdb
+    ports:
+      - 5432:5432
+    networks:
+      - authnet
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  rest-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.restsvc
+    environment:
+      PORT: 8090
+      DATABASE_URL: "postgresql://postgres:dev@postgres:5432/authdb?schema=public"
+      JWT_SECRET: c29tZXRoaW5nLXNlY3JldAo=
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    ports:
+      - 8090:8090
+    networks:
+      - authnet
+    depends_on:
+      - cache
+      - postgres
+
+networks:
+  authnet:
+
+volumes:
+  pgdata:
+  rediscache:
