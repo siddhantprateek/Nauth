@@ -10,9 +10,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Node dependencies and Running Test Cases.
+      - name: Set up Docker Compose
+        run: docker-compose --version
+
+      - name: Install Node dependencies.
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}      
       - run: npm ci
-      - run: npm run test
+
+      - name: Running Test Cases
+        uses: actions/setup-node@v3
+      - run: npm run test 

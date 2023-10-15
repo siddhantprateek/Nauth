@@ -46,7 +46,7 @@ app.use(morgan('dev'))
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({
-      message: "fleet REST server",
+      message: "NAuth REST server",
       health: "ok"
   })
 })

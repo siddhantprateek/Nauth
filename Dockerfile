@@ -3,7 +3,7 @@ FROM node:18.12.1 AS base
 WORKDIR /app
 
 COPY package.json ./
-
+RUN npm install -g node-gyp
 RUN npm install
 
 COPY prisma/schema.prisma ./prisma/
@@ -12,7 +12,7 @@ RUN npm run prisma:generate
 
 COPY . .
 
-RUN npm run build
+RUN npm run build:ts
 
 FROM node:18.12.1 AS prod
 

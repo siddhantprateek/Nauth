@@ -3,7 +3,7 @@ import { prisma } from "../config/postgres/postgres";
 import { IUserCreate, IUserLogin } from "../types/user.types";
 import { validationResult } from "express-validator";
 import { Prisma } from "@prisma/client";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { redisClient } from "../config/redis/cache";
 

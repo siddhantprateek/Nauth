@@ -28,10 +28,10 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  rest-service:
+  auth:
     build:
       context: .
-      dockerfile: Dockerfile.restsvc
+      dockerfile: Dockerfile
     environment:
       PORT: 8090
       DATABASE_URL: "postgresql://postgres:dev@postgres:5432/authdb?schema=public"
