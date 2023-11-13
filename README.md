@@ -1,6 +1,6 @@
 # Nauth
 
-Authentication service in Typescript
+Authentication service in Typescript, This Application Serves a Secure User Authentication and Authorization System with Express.js and uses PostgreSQL for user store.
 
 ## Running application using `docker-compose`
 
@@ -24,13 +24,7 @@ npm run dev     # Serve on http://localhost:8090
 
 [Link](https://documenter.getpostman.com/view/16181974/2s9YR6ZYtw)
 
-## Checklist
-
-Task: Build a Secure User Authentication and Authorization System with Express.js
-
-The objective is to create a secure user authentication and authorization system using Express.js.
-
-### Requirements
+### Features
 
 - [x] Create an Express.js Application
 - [x] User Registration and Authentication:
